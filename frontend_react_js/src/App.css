@@ -1,0 +1,211 @@
+:root {
+  --color-primary: #1976d2;
+  --color-accent: #ff9800;
+  --color-secondary: #eeeeee;
+  --bg-light: #ffffff;
+  --border-light: #e0e0e0;
+  --font-main: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+body, html {
+  background: var(--bg-light);
+  margin: 0;
+}
+
+.tic-tac-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg-light);
+  font-family: var(--font-main);
+  justify-content: center;
+  padding: 0 8px;
+}
+
+.game-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+.game-title {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.game-desc {
+  margin: 4px 0 0 0;
+  font-size: 1rem;
+  color: #555;
+}
+.game-mode-pick {
+  display: flex;
+  gap: 10px;
+  margin: 18px 0 0 0;
+  justify-content: center;
+}
+.mode-btn {
+  padding: 6px 24px;
+  border: 2px solid var(--color-primary);
+  background: #fff;
+  color: var(--color-primary);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background 0.18s, color 0.18s, border-color 0.2s;
+  outline: none;
+  cursor: pointer;
+}
+.mode-btn[disabled] {
+  opacity: 0.92;
+  filter: grayscale(0.05);
+  cursor: default;
+}
+.mode-btn:last-child {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.score-section {
+  display: flex;
+  gap: 28px;
+  margin: 16px 0 18px 0;
+  justify-content: center;
+}
+.score-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 48px;
+  background: var(--color-secondary);
+  border-radius: 8px;
+  padding: 8px 18px;
+}
+.score-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.score-value {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.game-main {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 10px auto;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 69px);
+  grid-template-rows: repeat(3, 69px);
+  gap: 0;
+  background: var(--color-secondary);
+  border: 2.5px solid var(--color-primary);
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(135,160,185,0.07);
+  margin: 0;
+  overflow: hidden;
+}
+
+.board-cell {
+  border: 1.2px solid var(--border-light);
+  font-size: 2.4rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.14s, color 0.14s, box-shadow 0.13s;
+  height: 69px;
+  width: 69px;
+  padding: 0;
+  user-select: none;
+}
+.board-cell:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-accent);
+}
+.board-cell:disabled {
+  cursor: not-allowed;
+  opacity: 0.85;
+  background: #f9f9f9;
+}
+
+.result-section {
+  margin: 14px 0 0 0;
+  min-height: 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.game-status {
+  font-size: 1.12rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: color 0.24s;
+}
+.status-finished {
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+}
+
+.reset-btn {
+  margin-top: 6px;
+  padding: 8px 32px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(32,32,64,0.03);
+  transition: background 0.15s, color 0.11s, filter 0.2s;
+}
+.reset-btn:hover {
+  filter: brightness(1.11);
+}
+
+@media screen and (max-width: 600px) {
+  .tic-tac-container {
+    padding: 0 0px;
+  }
+  .game-title { font-size: 1.34rem;}
+  .game-header { margin-bottom: 8px;}
+  .score-section { gap: 10px; }
+  .score-block { min-width: 1px; padding: 4px 8px;}
+  .board-grid {
+    grid-template-columns: repeat(3, 44px);
+    grid-template-rows: repeat(3, 44px);
+    border-width: 1.2px;
+    border-radius: 9px;
+  }
+  .board-cell {
+    height: 44px;
+    width: 44px;
+    font-size: 1.29rem;
+  }
+  .reset-btn {
+    padding: 6px 18px;
+    font-size: .97rem;
+  }
+}
+
+@media screen and (max-width: 383px) {
+  .tic-tac-container {
+    padding: 2px 2px 0 2px;
+  }
+  .board-grid {
+    grid-template-columns: repeat(3, 30px);
+    grid-template-rows: repeat(3, 30px);
+  }
+  .board-cell { font-size: .99rem; }
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+}
